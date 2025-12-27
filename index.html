@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Sravya's Education</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f4f6f8;
+}
+
+header {
+  background: #0d47a1;
+  color: white;
+  padding: 20px;
+  text-align: center;
+}
+
+header img {
+  width: 100px;
+  border-radius: 50%;
+  margin-bottom: 10px;
+}
+
+.container {
+  padding: 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.card {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  text-align: center;
+}
+
+.card h2 {
+  color: #0d47a1;
+}
+
+.card p {
+  font-size: 15px;
+  color: #555;
+}
+
+.card button {
+  margin: 8px;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.study {
+  background: #2e7d32;
+  color: white;
+}
+
+.exam {
+  background: #c62828;
+  color: white;
+}
+
+footer {
+  background: #0d47a1;
+  color: white;
+  text-align: center;
+  padding: 10px;
+  font-size: 14px;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <!-- Replace logo.png with your round logo file -->
+  <img src="logo.png" alt="Sravya's Education Logo">
+  <h1>Sravya's Education</h1>
+  <p>Learn • Practice • Succeed</p>
+</header>
+
+<div class="container">
+
+  <!-- Arithmetic Reasoning -->
+  <div class="card">
+    <h2>Arithmetic Reasoning</h2>
+    <p>
+      Topics: Numbers, Percentages, Profit & Loss, Time & Work,
+      Ratios, Averages
+    </p>
+    <button class="study" onclick="location.href='arithmetic-material.html'">
+      Study Material
+    </button>
+    <button class="exam" onclick="location.href='arithmetic-exam.html'">
+      Take Exam
+    </button>
+  </div>
+
+  <!-- GK -->
+  <div class="card">
+    <h2>General Knowledge (GK)</h2>
+    <p>
+      Topics: Indian History, Geography, Polity,
+      Current Affairs, Science
+    </p>
+    <button class="study" onclick="location.href='gk-material.html'">
+      Study Material
+    </button>
+    <button class="exam" onclick="location.href='gk-exam.html'">
+      Take Exam
+    </button>
+  </div>
+
+</div>
+
+<footer>
+  © 2025 Sravya's Education | All Rights Reserved
+</footer>
+
+</body>
+</html>
