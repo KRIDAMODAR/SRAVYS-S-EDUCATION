@@ -1,0 +1,921 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sravya's Education</title>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;600;700;800&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--blue:#1a3fa8;--blue2:#2456d0;--gold:#f5a623;--red:#e02020;--green:#27ae60;--pink:#e91e8c;--purple:#7c3aed;--teal:#0097a7;--orange:#ff6f00;--white:#fff;--light:#f0f4ff;}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Nunito',sans-serif;background:var(--light);overflow-x:hidden;}
+.bg-blobs{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden;}
+.blob{position:absolute;border-radius:50%;filter:blur(80px);opacity:0.15;animation:blobMove 14s ease-in-out infinite alternate;}
+.blob1{width:420px;height:420px;background:#f5a623;top:-80px;left:-100px;}
+.blob2{width:300px;height:300px;background:#e91e8c;top:40%;right:-80px;animation-delay:2s;}
+.blob3{width:360px;height:360px;background:#7c3aed;bottom:-100px;left:30%;animation-delay:4s;}
+.blob4{width:220px;height:220px;background:#0097a7;top:20%;left:50%;animation-delay:3s;}
+@keyframes blobMove{0%{transform:scale(1) translate(0,0);}50%{transform:scale(1.15) translate(30px,-20px);}100%{transform:scale(0.95) translate(-20px,30px);}}
+.particles{position:fixed;inset:0;z-index:0;pointer-events:none;}
+.particle{position:absolute;border-radius:50%;animation:floatUp linear infinite;opacity:.5;}
+@keyframes floatUp{0%{transform:translateY(100vh) rotate(0deg);opacity:0;}10%{opacity:.6;}90%{opacity:.4;}100%{transform:translateY(-10vh) rotate(720deg);opacity:0;}}
+header{position:relative;z-index:10;background:linear-gradient(135deg,#1a3fa8 0%,#2456d0 40%,#7c3aed 100%);padding:0 0 30px;overflow:hidden;box-shadow:0 8px 32px rgba(26,63,168,.4);}
+header::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(45deg,rgba(255,255,255,.03) 0,rgba(255,255,255,.03) 2px,transparent 2px,transparent 18px);}
+.header-stars{position:absolute;inset:0;overflow:hidden;pointer-events:none;}
+.star{position:absolute;background:#fff;border-radius:50%;animation:twinkle 2s ease-in-out infinite alternate;}
+@keyframes twinkle{0%{opacity:.1;transform:scale(1);}100%{opacity:.9;transform:scale(1.5);}}
+.logo-wrap{text-align:center;padding-top:28px;animation:dropIn .8s cubic-bezier(.22,1,.36,1) both;}
+@keyframes dropIn{0%{transform:translateY(-60px) scale(.7);opacity:0;}100%{transform:translateY(0) scale(1);opacity:1;}}
+.logo-circle{display:inline-flex;align-items:center;justify-content:center;width:90px;height:90px;border-radius:50%;background:#fff;box-shadow:0 0 0 6px rgba(245,166,35,.6),0 0 0 12px rgba(245,166,35,.2),0 8px 30px rgba(0,0,0,.3);font-size:2.6rem;animation:pulse-logo 2s ease-in-out infinite;}
+@keyframes pulse-logo{0%,100%{box-shadow:0 0 0 6px rgba(245,166,35,.6),0 0 0 12px rgba(245,166,35,.2),0 8px 30px rgba(0,0,0,.3);}50%{box-shadow:0 0 0 10px rgba(245,166,35,.8),0 0 0 22px rgba(245,166,35,.1),0 8px 40px rgba(0,0,0,.4);}}
+header h1{font-family:'Baloo 2',cursive;font-weight:800;font-size:2.8rem;color:#fff;text-align:center;margin-top:14px;text-shadow:0 2px 16px rgba(0,0,0,.3);animation:slideUp .9s .2s cubic-bezier(.22,1,.36,1) both;letter-spacing:1px;}
+.rainbow-text{background:linear-gradient(90deg,#fff 0%,#ffe259 30%,#ff9800 55%,#ff4081 80%,#fff 100%);background-size:200%;-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;animation:shimmer 3s linear infinite;}
+@keyframes shimmer{0%{background-position:0% 50%;}100%{background-position:200% 50%;}}
+.tagline{text-align:center;color:rgba(255,255,255,.85);font-size:1.1rem;font-weight:600;letter-spacing:4px;margin-top:6px;animation:slideUp .9s .35s cubic-bezier(.22,1,.36,1) both;}
+.tagline .dot{color:#f5a623;animation:bounceDot 1s ease-in-out infinite alternate;}
+.tagline .dot:nth-child(3){animation-delay:.2s;}.tagline .dot:nth-child(5){animation-delay:.4s;}
+@keyframes bounceDot{0%{transform:translateY(0);}100%{transform:translateY(-5px);}}
+@keyframes slideUp{0%{transform:translateY(40px);opacity:0;}100%{transform:translateY(0);opacity:1;}}
+.nav-pills{display:flex;justify-content:center;gap:10px;margin-top:22px;flex-wrap:wrap;padding:0 16px;animation:slideUp .9s .5s both;}
+.nav-pill{padding:8px 18px;border-radius:50px;background:rgba(255,255,255,.15);backdrop-filter:blur(6px);border:1.5px solid rgba(255,255,255,.35);color:#fff;font-weight:700;font-size:.85rem;cursor:pointer;transition:all .3s ease;text-decoration:none;}
+.nav-pill:hover{background:#f5a623;color:#1a3fa8;border-color:#f5a623;transform:translateY(-3px) scale(1.07);box-shadow:0 6px 20px rgba(245,166,35,.5);}
+main{position:relative;z-index:5;max-width:1200px;margin:0 auto;padding:40px 16px 60px;}
+.section-label{text-align:center;font-family:'Baloo 2',cursive;font-size:1.4rem;font-weight:800;color:#1a3fa8;margin-bottom:28px;}
+.section-label span{display:inline-block;padding:6px 24px;border-radius:50px;background:linear-gradient(90deg,#1a3fa8,#7c3aed);color:#fff;}
+.subject-tabs{display:flex;gap:14px;justify-content:center;margin-bottom:32px;flex-wrap:wrap;}
+.sub-tab{padding:12px 32px;border-radius:50px;border:none;font-family:'Baloo 2',cursive;font-size:1.1rem;font-weight:800;cursor:pointer;transition:all .3s;background:#fff;color:#666;box-shadow:0 4px 14px rgba(0,0,0,.08);}
+.sub-tab.active-ar{background:linear-gradient(135deg,#1a3fa8,#0097a7);color:#fff;box-shadow:0 8px 24px rgba(26,63,168,.4);transform:translateY(-3px);}
+.sub-tab.active-gk{background:linear-gradient(135deg,#7c3aed,#e91e8c);color:#fff;box-shadow:0 8px 24px rgba(124,58,237,.4);transform:translateY(-3px);}
+.sub-tab:hover:not(.active-ar):not(.active-gk){transform:translateY(-3px);box-shadow:0 8px 20px rgba(0,0,0,.12);}
+.content-panel{display:none;}
+.content-panel.active{display:block;animation:fadeSlide .5s cubic-bezier(.22,1,.36,1) both;}
+@keyframes fadeSlide{0%{opacity:0;transform:translateY(30px);}100%{opacity:1;transform:translateY(0);}}
+.action-bar{display:flex;gap:14px;margin-bottom:28px;flex-wrap:wrap;}
+.act-btn{padding:12px 28px;border-radius:50px;border:none;cursor:pointer;font-family:'Nunito',sans-serif;font-size:1rem;font-weight:800;transition:all .25s;position:relative;overflow:hidden;}
+.act-btn::after{content:'';position:absolute;inset:0;background:rgba(255,255,255,.25);transform:scaleX(0);transform-origin:left;transition:transform .35s ease;}
+.act-btn:hover::after{transform:scaleX(1);}
+.act-btn:hover{transform:translateY(-3px) scale(1.05);}
+.btn-study{background:linear-gradient(135deg,#27ae60,#43e97b);color:#fff;box-shadow:0 6px 20px rgba(39,174,96,.4);}
+.btn-exam{background:linear-gradient(135deg,#e02020,#ff6b6b);color:#fff;box-shadow:0 6px 20px rgba(224,32,32,.4);}
+.chapter-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:22px;}
+@media(max-width:600px){.chapter-grid{grid-template-columns:1fr;}}
+.chapter-card{border-radius:20px;overflow:hidden;background:#fff;box-shadow:0 6px 28px rgba(26,63,168,.1);transition:transform .3s,box-shadow .3s;animation:cardReveal .6s both;}
+.chapter-card:hover{transform:translateY(-6px);box-shadow:0 16px 48px rgba(26,63,168,.18);}
+@keyframes cardReveal{0%{opacity:0;transform:translateY(40px) scale(.97);}100%{opacity:1;transform:translateY(0) scale(1);}}
+.chap-head{padding:16px 20px;display:flex;align-items:center;gap:12px;cursor:pointer;user-select:none;}
+.chap-icon{font-size:1.8rem;flex-shrink:0;}
+.chap-title-wrap{flex:1;}
+.chap-title{font-family:'Baloo 2',cursive;font-size:1.1rem;font-weight:800;}
+.chap-sub{font-size:.78rem;opacity:.8;margin-top:1px;}
+.chap-toggle{width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.9rem;background:rgba(255,255,255,.3);transition:transform .3s;}
+.chap-toggle.open{transform:rotate(180deg);}
+.chap-body{display:none;padding:0 20px 20px;background:#fafbff;}
+.chap-body.open{display:block;animation:slideDown .4s cubic-bezier(.22,1,.36,1);}
+@keyframes slideDown{0%{opacity:0;transform:translateY(-12px);}100%{opacity:1;transform:translateY(0);}}
+.formula-box{background:linear-gradient(135deg,#e3f0ff,#d0e8ff);border-left:4px solid #1a3fa8;border-radius:12px;padding:14px 16px;margin:12px 0;font-size:.88rem;}
+.formula-box.green{background:linear-gradient(135deg,#e8f5e9,#c8e6c9);border-color:#27ae60;}
+.formula-box.orange{background:linear-gradient(135deg,#fff3e0,#ffe0b2);border-color:#ff6f00;}
+.formula-box.purple{background:linear-gradient(135deg,#ede7f6,#d1c4e9);border-color:#7c3aed;}
+.formula-box.pink{background:linear-gradient(135deg,#fce4ec,#f8bbd0);border-color:#e91e8c;}
+.formula-box.teal{background:linear-gradient(135deg,#e0f7fa,#b2ebf2);border-color:#0097a7;}
+.formula-label{font-weight:800;font-size:.8rem;color:#1a3fa8;text-transform:uppercase;letter-spacing:.5px;margin-bottom:5px;}
+.formula-label.green{color:#27ae60;}.formula-label.orange{color:#e65100;}.formula-label.purple{color:#4a148c;}.formula-label.pink{color:#880e4f;}.formula-label.teal{color:#006064;}
+.formula-text{font-family:monospace;font-size:.9rem;font-weight:700;color:#333;white-space:pre-wrap;line-height:1.8;}
+.example-box{background:#fffde7;border-left:4px solid #f5a623;border-radius:12px;padding:12px 16px;margin:10px 0;font-size:.85rem;}
+.example-label{font-weight:800;color:#e65100;font-size:.78rem;text-transform:uppercase;margin-bottom:4px;}
+.example-q{font-weight:700;color:#333;margin-bottom:4px;}
+.example-sol{color:#555;line-height:1.7;}
+.example-ans{font-weight:800;color:#27ae60;margin-top:4px;}
+.key-points{margin:10px 0;list-style:none;}
+.key-points li{display:flex;align-items:flex-start;gap:8px;padding:5px 0;font-size:.87rem;color:#444;line-height:1.5;border-bottom:1px dashed #e8ecf8;}
+.key-points li:last-child{border-bottom:none;}
+.key-points li::before{content:'✦';color:#f5a623;font-size:.75rem;margin-top:2px;flex-shrink:0;}
+.definition{background:linear-gradient(135deg,#f8f9ff,#eef2ff);border-radius:12px;padding:14px 16px;margin:10px 0;border:1.5px solid #d0d9f5;}
+.def-term{font-weight:800;color:#1a3fa8;font-size:.95rem;margin-bottom:4px;}
+.def-text{font-size:.86rem;color:#555;line-height:1.7;}
+.topic-pills{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0;}
+.tpill{padding:5px 14px;border-radius:20px;font-size:.8rem;font-weight:700;display:inline-block;}
+.ch-blue .chap-head{background:linear-gradient(135deg,#1a3fa8,#2456d0);color:#fff;}
+.ch-teal .chap-head{background:linear-gradient(135deg,#0097a7,#00bcd4);color:#fff;}
+.ch-green .chap-head{background:linear-gradient(135deg,#27ae60,#43e97b);color:#fff;}
+.ch-orange .chap-head{background:linear-gradient(135deg,#ff6f00,#ffa726);color:#fff;}
+.ch-red .chap-head{background:linear-gradient(135deg,#e02020,#ff6b6b);color:#fff;}
+.ch-purple .chap-head{background:linear-gradient(135deg,#7c3aed,#a855f7);color:#fff;}
+.ch-pink .chap-head{background:linear-gradient(135deg,#e91e8c,#f06292);color:#fff;}
+.ch-indigo .chap-head{background:linear-gradient(135deg,#3949ab,#5c6bc0);color:#fff;}
+.ch-cyan .chap-head{background:linear-gradient(135deg,#006064,#0097a7);color:#fff;}
+.ch-brown .chap-head{background:linear-gradient(135deg,#5d4037,#8d6e63);color:#fff;}
+.ch-lime .chap-head{background:linear-gradient(135deg,#558b2f,#8bc34a);color:#fff;}
+.stats-strip{margin:48px 0 0;background:linear-gradient(135deg,#1a3fa8 0%,#7c3aed 50%,#e91e8c 100%);border-radius:24px;padding:32px 20px;display:grid;grid-template-columns:repeat(4,1fr);gap:20px;text-align:center;box-shadow:0 8px 40px rgba(26,63,168,.3);position:relative;overflow:hidden;}
+.stats-strip::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(45deg,rgba(255,255,255,.03) 0,rgba(255,255,255,.03) 2px,transparent 2px,transparent 20px);}
+@media(max-width:600px){.stats-strip{grid-template-columns:1fr 1fr;}}
+.stat-item{position:relative;z-index:1;}
+.stat-num{font-family:'Baloo 2',cursive;font-size:2.4rem;font-weight:800;color:#fff;display:block;line-height:1;}
+.stat-label{color:rgba(255,255,255,.8);font-size:.85rem;font-weight:600;margin-top:4px;}
+footer{position:relative;z-index:5;background:linear-gradient(135deg,#1a3fa8,#2456d0,#7c3aed);padding:28px 20px;text-align:center;margin-top:20px;}
+footer::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(45deg,rgba(255,255,255,.03) 0,rgba(255,255,255,.03) 2px,transparent 2px,transparent 20px);}
+footer p{color:rgba(255,255,255,.9);font-weight:700;position:relative;z-index:1;font-size:.95rem;}
+.footer-hearts{animation:heartBeat 1.2s ease-in-out infinite alternate;}
+@keyframes heartBeat{0%{transform:scale(1);}100%{transform:scale(1.3);}}
+.modal-overlay{display:none;position:fixed;inset:0;z-index:200;background:rgba(10,15,50,.75);backdrop-filter:blur(8px);align-items:center;justify-content:center;padding:16px;}
+.modal-overlay.open{display:flex;animation:fadeIn .3s both;}
+@keyframes fadeIn{0%{opacity:0;}100%{opacity:1;}}
+.modal{background:#fff;border-radius:24px;width:100%;max-width:620px;overflow:hidden;box-shadow:0 24px 80px rgba(26,63,168,.35);animation:modalIn .4s cubic-bezier(.22,1,.36,1) both;max-height:92vh;display:flex;flex-direction:column;}
+@keyframes modalIn{0%{transform:scale(.7) translateY(60px);opacity:0;}100%{transform:scale(1) translateY(0);opacity:1;}}
+.modal-head{padding:20px 24px;color:#fff;position:relative;flex-shrink:0;}
+.modal-head h3{font-family:'Baloo 2',cursive;font-size:1.4rem;font-weight:800;}
+.modal-head p{opacity:.85;margin-top:2px;font-size:.88rem;}
+.modal-close{position:absolute;top:14px;right:16px;background:rgba(255,255,255,.25);border:none;color:#fff;width:32px;height:32px;border-radius:50%;font-size:1rem;cursor:pointer;transition:background .2s,transform .2s;display:flex;align-items:center;justify-content:center;}
+.modal-close:hover{background:rgba(255,255,255,.5);transform:rotate(90deg);}
+.modal-progress{height:6px;background:rgba(255,255,255,.25);}
+.modal-progress-bar{height:100%;background:#fff;transition:width .4s ease;}
+.modal-scroll{overflow-y:auto;padding:24px;flex:1;}
+.question-box{background:#f4f6ff;border-radius:14px;padding:18px;font-weight:700;color:#1a3fa8;font-size:1rem;margin-bottom:18px;border-left:5px solid #1a3fa8;line-height:1.6;}
+.q-num{font-size:.78rem;color:#7c3aed;font-weight:800;text-transform:uppercase;margin-bottom:6px;}
+.options-list{display:grid;gap:10px;margin-bottom:16px;}
+.option{padding:13px 18px;border-radius:12px;background:#fafbff;border:2px solid #e3ecff;cursor:pointer;font-weight:600;color:#333;transition:all .22s;display:flex;align-items:center;gap:10px;font-size:.92rem;}
+.option:hover{background:#e3ecff;border-color:#1a3fa8;color:#1a3fa8;transform:translateX(5px);}
+.option.correct{background:#e8f5e9;border-color:#27ae60;color:#27ae60;}
+.option.wrong{background:#fce4ec;border-color:#e02020;color:#e02020;}
+.option-letter{width:30px;height:30px;border-radius:50%;background:#1a3fa8;color:#fff;display:flex;align-items:center;justify-content:center;font-size:.82rem;font-weight:800;flex-shrink:0;}
+.option.correct .option-letter{background:#27ae60;}
+.option.wrong .option-letter{background:#e02020;}
+.explanation{background:#fffde7;border-left:4px solid #f5a623;border-radius:10px;padding:12px 16px;margin-bottom:16px;font-size:.87rem;display:none;}
+.explanation.show{display:block;animation:slideDown .3s both;}
+.exp-label{font-weight:800;color:#e65100;font-size:.78rem;text-transform:uppercase;margin-bottom:4px;}
+.modal-footer-bar{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;padding:16px 24px;border-top:1px solid #e8ecf8;flex-shrink:0;}
+.score-badge{background:linear-gradient(135deg,#f5a623,#ff9800);color:#fff;padding:8px 20px;border-radius:50px;font-weight:800;font-size:.95rem;}
+.modal-btn{padding:11px 22px;border-radius:50px;border:none;cursor:pointer;font-family:'Nunito',sans-serif;font-size:.92rem;font-weight:800;transition:all .25s;}
+.btn-next{background:linear-gradient(135deg,#1a3fa8,#2456d0);color:#fff;box-shadow:0 4px 14px rgba(26,63,168,.4);}
+.btn-next:hover{transform:translateY(-2px);}
+.btn-done{background:linear-gradient(135deg,#27ae60,#43e97b);color:#fff;box-shadow:0 4px 14px rgba(39,174,96,.4);}
+.btn-skip{background:linear-gradient(135deg,#f5a623,#ff9800);color:#fff;box-shadow:0 4px 14px rgba(245,166,35,.3);}
+.result-screen{text-align:center;padding:20px 10px;}
+.result-emoji{font-size:4rem;display:block;animation:bounce 1s ease-in-out infinite alternate;}
+@keyframes bounce{0%{transform:scale(1);}100%{transform:scale(1.2);}}
+.result-score{font-family:'Baloo 2',cursive;font-size:3rem;font-weight:800;color:#1a3fa8;margin:10px 0;}
+.result-msg{font-size:1rem;font-weight:600;color:#555;margin-bottom:20px;}
+.result-breakdown{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin:20px 0;}
+.rb-item{border-radius:14px;padding:14px;text-align:center;}
+.rb-correct{background:#e8f5e9;}.rb-wrong{background:#fce4ec;}.rb-skip{background:#fff3e0;}
+.rb-num{font-family:'Baloo 2',cursive;font-size:1.8rem;font-weight:800;}
+.rb-correct .rb-num{color:#27ae60;}.rb-wrong .rb-num{color:#e02020;}.rb-skip .rb-num{color:#ff6f00;}
+.rb-label{font-size:.78rem;font-weight:700;opacity:.7;}
+</style>
+</head>
+<body>
+<div class="bg-blobs"><div class="blob blob1"></div><div class="blob blob2"></div><div class="blob blob3"></div><div class="blob blob4"></div></div>
+<div class="particles" id="particles"></div>
+
+<header>
+  <div class="header-stars" id="headerStars"></div>
+  <div class="logo-wrap"><div class="logo-circle">🎓</div></div>
+  <h1><span class="rainbow-text">Sravya's Education</span></h1>
+  <p class="tagline"><span>Learn</span><span class="dot"> • </span><span>Practice</span><span class="dot"> • </span><span>Succeed</span></p>
+  <div class="nav-pills">
+    <a class="nav-pill" href="#" onclick="showPanel('ar');return false;">📐 Arithmetic</a>
+    <a class="nav-pill" href="#" onclick="showPanel('gk');return false;">🌍 General Knowledge</a>
+    <a class="nav-pill" href="#stats">📊 Stats</a>
+  </div>
+</header>
+<svg viewBox="0 0 1440 50" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" style="display:block;background:var(--light);margin-top:-1px"><path fill="#2456d0" d="M0,0 C360,50 1080,0 1440,50 L1440,0 Z" opacity=".12"/></svg>
+
+<main>
+  <p class="section-label"><span>✨ Choose Your Subject</span></p>
+  <div class="subject-tabs">
+    <button class="sub-tab active-ar" id="tab-ar" onclick="showPanel('ar')">📐 Arithmetic Reasoning</button>
+    <button class="sub-tab" id="tab-gk" onclick="showPanel('gk')">🌍 General Knowledge</button>
+  </div>
+
+  <!-- ARITHMETIC PANEL -->
+  <div class="content-panel active" id="panel-ar">
+    <div class="action-bar">
+      <button class="act-btn btn-study" onclick="expandAll('ar')">📖 Expand All Topics</button>
+      <button class="act-btn btn-exam" onclick="openExam('ar')">✏️ Take Exam (20 Qs)</button>
+    </div>
+    <div class="chapter-grid">
+
+      <div class="chapter-card ch-blue" style="animation-delay:.05s">
+        <div class="chap-head" onclick="toggleChap(this)"><span class="chap-icon">🔢</span><div class="chap-title-wrap"><div class="chap-title">Basic Arithmetic</div><div class="chap-sub">Numbers · Operations · BODMAS</div></div><span class="chap-toggle">▼</span></div>
+        <div class="chap-body">
+          <div class="definition"><div class="def-term">Natural Numbers</div><div class="def-text">Counting numbers starting from 1: 1, 2, 3, 4, … They do NOT include 0 or negative numbers.</div></div>
+          <div class="definition"><div class="def-term">Whole Numbers</div><div class="def-text">All natural numbers PLUS zero: 0, 1, 2, 3, … Every natural number is a whole number.</div></div>
+          <div class="definition"><div class="def-term">Integers</div><div class="def-text">All positive, negative whole numbers including zero: …−3, −2, −1, 0, 1, 2, 3…</div></div>
+          <div class="formula-box"><div class="formula-label">BODMAS Rule — Order of Operations</div><div class="formula-text">B → Brackets first  ( ), { }, [ ]
+O → Orders (powers, square roots)
+D → Division  ÷
+M → Multiplication  ×
+A → Addition  +
+S → Subtraction  −</div></div>
+          <div class="example-box"><div class="example-label">📝 Solved Example</div><div class="example-q">Evaluate: 3 + 6 × (5 + 4) ÷ 3 − 7</div><div class="example-sol">Step 1 — Brackets: (5+4) = 9<br>Step 2 — Multiply: 6 × 9 = 54<br>Step 3 — Divide: 54 ÷ 3 = 18<br>Step 4 — Left to right: 3 + 18 − 7 = 14</div><div class="example-ans">✅ Answer = 14</div></div>
+          <ul class="key-points">
+            <li>Place value of a digit = digit × its positional value (ones, tens, hundreds…)</li>
+            <li>Face value of a digit is always the digit itself regardless of position</li>
+            <li>Commutative Property: a+b = b+a and a×b = b×a</li>
+            <li>Associative Property: (a+b)+c = a+(b+c)</li>
+            <li>Distributive Property: a×(b+c) = a×b + a×c</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="chapter-card ch-teal" style="animation-delay:.1s">
+        <div class="chap-head" onclick="toggleChap(this)"><span class="chap-icon">🍕</span><div class="chap-title-wrap"><div class="chap-title">Fractions &amp; Decimals</div><div class="chap-sub">Proper · Improper · Mixed · Conversions</div></div><span class="chap-toggle">▼</span></div>
+        <div class="chap-body">
+          <div class="definition"><div class="def-term">Fraction</div><div class="def-text">A number of the form p/q where q ≠ 0. The top number is the <b>numerator</b>; the bottom is the <b>denominator</b>.</div></div>
+          <div class="topic-pills">
+            <span class="tpill" style="background:#e3f0ff;color:#1a3fa8">Proper: numerator &lt; denominator</span>
+            <span class="tpill" style="background:#fff3e0;color:#e65100">Improper: numerator ≥ denominator</span>
+            <span class="tpill" style="background:#e8f5e9;color:#27ae60">Mixed: whole number + fraction</span>
+          </div>
+          <div class="formula-box teal"><div class="formula-label teal">Fraction Operations</div><div class="formula-text">Add/Sub:  a/b ± c/d = (ad ± bc) / bd
+Multiply: a/b × c/d = ac / bd
+Divide:   a/b ÷ c/d = a/b × d/c = ad/bc</div></div>
+          <div class="formula-box green"><div class="formula-label green">Conversion</div><div class="formula-text">Fraction → Decimal: divide numerator by denominator
+Decimal → Fraction: write over power of 10, simplify
+Example: 0.75 = 75/100 = 3/4
+Example: 1/3 = 0.333... (recurring)</div></div>
+          <div class="example-box"><div class="example-label">📝 Solved Example</div><div class="example-q">Simplify: 2/3 + 3/4</div><div class="example-sol">LCM of 3 and 4 = 12<br>2/3 = 8/12 &nbsp;·&nbsp; 3/4 = 9/12<br>Sum = 8/12 + 9/12 = 17/12</div><div class="example-ans">✅ Answer = 1 and 5/12</div></div>
+          <ul class="key-points">
+            <li>To compare fractions, convert to same denominator using LCM</li>
+            <li>Reciprocal of p/q is q/p; dividing by a fraction = multiplying by its reciprocal</li>
+            <li>Terminating decimals: denominator has only factors 2 and 5 (e.g. 1/4 = 0.25)</li>
+            <li>Recurring decimals: denominator has other prime factors (e.g. 1/3 = 0.333…)</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="chapter-card ch-green" style="animation-delay:.15s">
+        <div class="chap-head" onclick="toggleChap(this)"><span class="chap-icon">📊</span><div class="chap-title-wrap"><div class="chap-title">Percentages &amp; Ratios</div><div class="chap-sub">Ratio · Proportion · % Applications</div></div><span class="chap-toggle">▼</span></div>
+        <div class="chap-body">
+          <div class="formula-box green"><div class="formula-label green">Percentage Formulas</div><div class="formula-text">Percentage = (Part / Whole) × 100
+Part = (Percentage × Whole) / 100
+% Increase = [(New − Old) / Old] × 100
+% Decrease = [(Old − New) / Old] × 100</div></div>
+          <div class="formula-box"><div class="formula-label">Ratio &amp; Proportion</div><div class="formula-text">Ratio a : b means a/b
+Proportion: a:b :: c:d  →  ad = bc (cross product)
+Fourth Proportional: if a:b = c:x  →  x = bc/a
+Mean Proportional of a, b = √(ab)</div></div>
+          <div class="example-box"><div class="example-label">📝 Solved Example</div><div class="example-q">A score went from 80 to 100. Find % increase.</div><div class="example-sol">% Increase = [(100−80)/80] × 100 = [20/80] × 100 = 25%</div><div class="example-ans">✅ 25% increase</div></div>
+          <div class="example-box"><div class="example-label">📝 Solved Example</div><div class="example-q">If A:B = 3:5 and B:C = 4:7, find A:B:C</div><div class="example-sol">Make B common — LCM(5,4) = 20<br>A:B = 12:20 &nbsp;·&nbsp; B:C = 20:35</div><div class="example-ans">✅ A:B:C = 12:20:35</div></div>
+          <ul class="key-points">
+            <li>x% of y = y% of x — useful calculation trick</li>
+            <li>If price increases r%, qty must decrease by r/(100+r)×100% to keep expenditure same</li>
+            <li>Compound ratio of a:b and c:d is ac:bd</li>
+            <li>Duplicate ratio of a:b is a²:b² — sub-duplicate ratio is √a:√b</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="chapter-card ch-orange" style="animation-delay:.2s">
+        <div class="chap-head" onclick="toggleChap(this)"><span class="chap-icon">💰</span><div class="chap-title-wrap"><div class="chap-title">Profit &amp; Loss</div><div class="chap-sub">CP · SP · Discount · Marked Price</div></div><span class="chap-toggle">▼</span></div>
+        <div class="chap-body">
+          <div class="formula-box orange"><div class="formula-label orange">Core Formulas</div><div class="formula-text">Profit = SP − CP
+Loss   = CP − SP
+Profit% = (Profit / CP) × 100
+SP = CP × (100 + Profit%) / 100
+CP = SP × 100 / (100 + Profit%)</div></div>
+          <div class="formula-box"><div class="formula-label">Discount &amp; Marked Price</div><div class="formula-text">Discount = Marked Price − Selling Price
+Discount% = (Discount / MP) × 100
+SP = MP × (100 − Discount%) / 100
+Profit% = [(MP × (100−D%) / 100) − CP] / CP × 100</div></div>
+          <div class="example-box"><div class="example-label">📝 Solved Example</div><div class="example-q">A man buys a cycle for ₹1400 and sells it for ₹1680. Find profit%.</div><div class="example-sol">Profit = 1680 − 1400 = ₹280<br>Profit% = (280/1400) × 100 = 20%</div><div class="example-ans">✅ Profit% = 20%</div></div>
+          <div class="example-box"><div class="example-label">📝 Solved Example</div><div class="example-q">Shopkeeper marks price 25% above CP, gives 10% discount. Profit%?</div><div class="example-sol">Let CP = 100. MP = 125.<br>SP = 125 × 90/100 = 112.50<br>Profit = 12.50</div><div class="example-ans">✅ Profit% = 12.5%</div></div>
+          <ul class="key-points">
+            <li>Two items sold at same SP — one at x% profit, other at x% loss → always a net LOSS of (x²/100)%</li>
+            <li>Successive discounts a% and b% = single discount of (a + b − ab/100)%</li>
+            <li>If CP of x items = SP of y items → Profit% = [(x−y)/y] × 100</li>
+            <li>Dishonest trader uses false weights: Gain% = [Error/(True value − Error)] × 100</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="chapter-card ch-red" style="animation-delay:.25s">
+        <div class="chap-head" onclick="toggleChap(this)"><span class="chap-icon">🏦</span><div class="chap-title-wrap"><div class="chap-title">Simple &amp; Compound Interest</div><div class="chap-sub">SI · CI · Difference Formula</div></div><span class="chap-toggle">▼</span></div>
+        <div class="chap-body">
+          <div class="formula-box pink"><div class="formula-label pink">Simple Interest</div><div class="formula-text">SI = (P × R × T) / 100
+Amount (A) = P + SI
+P = 100 × SI / (R × T)
+R = 100 × SI / (P × T)
+T = 100 × SI / (P × R)</div></div>
+          <div class="formula-box purple"><div class="formula-label purple">Compound Interest</div><div class="formula-text">A = P × (1 + R/100)ⁿ
+CI = A − P
+Half-yearly: A = P × (1 + R/200)^(2n)
+Quarterly:   A = P × (1 + R/400)^(4n)</div></div>
+          <div class="formula-box green"><div class="formula-label green">CI − SI Shortcuts</div><div class="formula-text">For 2 years: CI − SI = P × (R/100)²
+For 3 years: CI − SI = P × (R/100)² × (R/100 + 3)</div></div>
+          <div class="example-box"><div class="example-label">📝 Solved Example</div><div class="example-q">Find CI on ₹8000 at 10% p.a. for 2 years (compounded annually).</div><div class="example-sol">A = 8000 × (1.1)² = 8000 × 1.21 = ₹9680<br>CI = 9680 − 8000 = ₹1680</div><div class="example-ans">✅ CI = ₹1680</div></div>
+          <ul class="key-points">
+            <li>SI is always the same every year; CI grows each year (interest on interest)</li>
+            <li>If annual CI differs in 2 consecutive years by ₹X → X = CI₁ × R/100</li>
+            <li>Population formula (growth): P_n = P₀ × (1 + r/100)ⁿ — same as CI formula</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="chapter-card ch-purple" style="animation-delay:.3s">
+        <div class="chap-head" onclick="toggleChap(this)"><span class="chap-icon">🚂</span><div class="chap-title-wrap"><div class="chap-title">Time, Speed &amp; Distance</div><div class="chap-sub">Trains · Relative Speed · Boats &amp; Streams</div></div><span class="chap-toggle">▼</span></div>
+        <div class="chap-body">
+          <div class="formula-box purple"><div class="formula-label purple">Basic Formulas</div><div class="formula-text">Speed = Distance / Time
+Distance = Speed × Time
+Time = Distance / Speed
+km/hr → m/s: multiply by 5/18
+m/s → km/hr: multiply by 18/5</div></div>
+          <div class="formula-box"><div class="formula-label">Trains</div><div class="formula-text">Cross a pole/person: Time = Length of train / Speed
+Cross a platform: Time = (Train + Platform length) / Speed
+Same direction: Relative speed = |S₁ − S₂|
+Opposite direction: Relative speed = S₁ + S₂</div></div>
+          <div class="formula-box teal"><div class="formula-label teal">Boats &amp; Streams</div><div class="formula-text">Downstream speed = u + v  (u=boat speed, v=stream speed)
+Upstream speed   = u − v
+Boat speed  u = (Downstream + Upstream) / 2
+Stream speed v = (Downstream − Upstream) / 2</div></div>
+          <div class="example-box"><div class="example-label">📝 Solved Example</div><div class="example-q">A 200m train crosses a 100m platform in 15 seconds. Find speed in km/hr.</div><div class="example-sol">Total distance = 200 + 100 = 300 m<br>Speed = 300/15 = 20 m/s = 20 × 18/5 = 72 km/hr</div><div class="example-ans">✅ Speed = 72 km/hr</div></div>
+          <ul class="key-points">
+            <li>Average speed for equal distances = 2S₁S₂/(S₁+S₂) — NOT simple average</li>
+            <li>If A is n times faster than B, A takes 1/n times the time</li>
+            <li>Two people start towards each other — they meet after: time = D/(S₁+S₂)</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="chapter-card ch-pink" style="animation-delay:.35s">
+        <div class="chap-head" onclick="toggleChap(this)"><span class="chap-icon">⚙️</span><div class="chap-title-wrap"><div class="chap-title">Time &amp; Work</div><div class="chap-sub">Pipes · Cisterns · Efficiency</div></div><span class="chap-toggle">▼</span></div>
+        <div class="chap-body">
+          <div class="formula-box pink"><div class="formula-label pink">Core Concept</div><div class="formula-text">If A finishes work in n days → A's 1-day work = 1/n
+If A+B work together:  1/d = 1/A + 1/B
+d = AB / (A + B)
+3 people: d = ABC / (AB+BC+CA)</div></div>
+          <div class="formula-box orange"><div class="formula-label orange">Pipes &amp; Cisterns</div><div class="formula-text">Inlet pipe fills in A hrs → rate = +1/A per hour
+Outlet pipe empties in B hrs → rate = −1/B per hour
+Net rate (A inlet, B outlet) = 1/A − 1/B
+Time to fill with both open = AB/(B−A) when B&gt;A</div></div>
+          <div class="formula-box"><div class="formula-label">MDH Formula</div><div class="formula-text">M₁ × D₁ × H₁ = M₂ × D₂ × H₂
+(Men × Days × Hours = constant for same work)
+Useful when workers or hours change</div></div>
+          <div class="example-box"><div class="example-label">📝 Solved Example</div><div class="example-q">A can do work in 12 days, B in 18 days. They work together 4 days, then A leaves. How many more days does B need?</div><div class="example-sol">Together rate = 1/12 + 1/18 = 5/36 per day<br>Work in 4 days = 4 × 5/36 = 20/36 = 5/9<br>Remaining = 1 − 5/9 = 4/9<br>B's time = (4/9) × 18 = 8 days</div><div class="example-ans">✅ B needs 8 more days</div></div>
+          <ul class="key-points">
+            <li>Work is inversely proportional to time for the same efficiency</li>
+            <li>If A is x times as efficient as B → A takes 1/x of B's time</li>
+            <li>Negative work = destruction/emptying; subtract from total work</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="chapter-card ch-indigo" style="animation-delay:.4s">
+        <div class="chap-head" onclick="toggleChap(this)"><span class="chap-icon">📈</span><div class="chap-title-wrap"><div class="chap-title">Averages</div><div class="chap-sub">Mean · Weighted Average · Age Problems</div></div><span class="chap-toggle">▼</span></div>
+        <div class="chap-body">
+          <div class="formula-box"><div class="formula-label">Average Formula</div><div class="formula-text">Average = Sum of all values / Number of values
+Sum = Average × n
+New avg when 1 value added = (Old sum + new) / (n+1)
+New avg when 1 value removed = (Old sum − removed) / (n−1)</div></div>
+          <div class="formula-box green"><div class="formula-label green">Useful Shortcuts</div><div class="formula-text">Average of 1 to n = (n+1)/2
+Average of first n odd numbers = n
+Average of first n even numbers = n + 1
+Average of consecutive numbers = (first + last)/2</div></div>
+          <div class="example-box"><div class="example-label">📝 Solved Example</div><div class="example-q">Average of 5 numbers is 27. If 35 is replaced by 55, find new average.</div><div class="example-sol">Old sum = 27 × 5 = 135<br>New sum = 135 − 35 + 55 = 155<br>New average = 155/5 = 31</div><div class="example-ans">✅ New Average = 31</div></div>
+          <ul class="key-points">
+            <li>If wrong reading x is replaced by y → change in average = (y−x)/n</li>
+            <li>Weighted average = Σ(weight × value) / Σ(weights)</li>
+            <li>When a person leaves/joins a group, compare their age with group average to find new average</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="chapter-card ch-cyan" style="animation-delay:.45s">
+        <div class="chap-head" onclick="toggleChap(this)"><span class="chap-icon">🔗</span><div class="chap-title-wrap"><div class="chap-title">HCF &amp; LCM</div><div class="chap-sub">Prime Factorisation · Euclidean Algorithm</div></div><span class="chap-toggle">▼</span></div>
+        <div class="chap-body">
+          <div class="definition"><div class="def-term">HCF — Highest Common Factor</div><div class="def-text">The largest number that divides all given numbers exactly. Also called GCD (Greatest Common Divisor).</div></div>
+          <div class="definition"><div class="def-term">LCM — Least Common Multiple</div><div class="def-text">The smallest positive number that is divisible by all given numbers without remainder.</div></div>
+          <div class="formula-box teal"><div class="formula-label teal">Key Relationship</div><div class="formula-text">HCF × LCM = Product of two numbers (a × b)
+LCM is always a multiple of HCF
+HCF always divides LCM
+HCF of fractions = HCF(numerators) / LCM(denominators)
+LCM of fractions = LCM(numerators) / HCF(denominators)</div></div>
+          <div class="example-box"><div class="example-label">📝 Solved Example</div><div class="example-q">Find HCF and LCM of 36 and 48.</div><div class="example-sol">36 = 2² × 3² &nbsp;·&nbsp; 48 = 2⁴ × 3<br>HCF = 2² × 3 = 12<br>LCM = 2⁴ × 3² = 144<br>Check: 12 × 144 = 1728 = 36 × 48 ✓</div><div class="example-ans">✅ HCF = 12, LCM = 144</div></div>
+          <ul class="key-points">
+            <li>Euclidean method: HCF(a,b) = HCF(b, a mod b) — repeat until remainder = 0</li>
+            <li>Bells ringing together: they ring simultaneously after LCM of their intervals</li>
+            <li>Largest tile to cover a floor without cutting: HCF of dimensions</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="chapter-card ch-lime" style="animation-delay:.5s">
+        <div class="chap-head" onclick="toggleChap(this)"><span class="chap-icon">🔺</span><div class="chap-title-wrap"><div class="chap-title">Squares, Cubes &amp; Roots</div><div class="chap-sub">Perfect Squares · √ · ∛ · Algebraic Identities</div></div><span class="chap-toggle">▼</span></div>
+        <div class="chap-body">
+          <div class="formula-box green"><div class="formula-label green">Quick Reference Table</div><div class="formula-text">1²=1   2²=4   3²=9   4²=16  5²=25
+6²=36  7²=49  8²=64  9²=81  10²=100
+11²=121  12²=144  13²=169  14²=196  15²=225
+1³=1   2³=8   3³=27  4³=64  5³=125  6³=216  7³=343</div></div>
+          <div class="formula-box"><div class="formula-label">Key Algebraic Identities</div><div class="formula-text">(a+b)² = a² + 2ab + b²
+(a−b)² = a² − 2ab + b²
+(a+b)(a−b) = a² − b²
+(a+b)³ = a³ + 3a²b + 3ab² + b³
+a³ + b³ = (a+b)(a² − ab + b²)
+a³ − b³ = (a−b)(a² + ab + b²)</div></div>
+          <div class="example-box"><div class="example-label">📝 Solved Example</div><div class="example-q">Find √1764 without a calculator.</div><div class="example-sol">1764 = 4 × 441 = 4 × 21² = (2 × 21)²<br>√1764 = 42</div><div class="example-ans">✅ √1764 = 42</div></div>
+          <ul class="key-points">
+            <li>A perfect square always ends in 0, 1, 4, 5, 6, 9 — NEVER 2, 3, 7, 8</li>
+            <li>Square of numbers ending in 5: (a5)² = a(a+1) followed by 25. E.g. 35² = 1225</li>
+            <li>Sum of first n odd numbers = n² (e.g. 1+3+5+7 = 16 = 4²)</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="chapter-card ch-brown" style="animation-delay:.55s">
+        <div class="chap-head" onclick="toggleChap(this)"><span class="chap-icon">📏</span><div class="chap-title-wrap"><div class="chap-title">Measurement &amp; Units</div><div class="chap-sub">Length · Weight · Capacity · Time</div></div><span class="chap-toggle">▼</span></div>
+        <div class="chap-body">
+          <div class="formula-box"><div class="formula-label">Length</div><div class="formula-text">1 km = 1000 m = 100,000 cm = 1,000,000 mm
+1 m = 100 cm = 1000 mm
+1 mile ≈ 1.609 km   ·   1 inch = 2.54 cm
+1 foot = 12 inches = 30.48 cm</div></div>
+          <div class="formula-box green"><div class="formula-label green">Weight / Mass</div><div class="formula-text">1 kg = 1000 g   ·   1 tonne = 1000 kg
+1 quintal = 100 kg
+1 pound ≈ 453.6 g   ·   1 ounce = 28.35 g</div></div>
+          <div class="formula-box teal"><div class="formula-label teal">Capacity / Volume</div><div class="formula-text">1 litre = 1000 ml = 1000 cm³
+1 kl = 1000 litres   ·   1 m³ = 1000 litres
+1 gallon ≈ 3.785 litres</div></div>
+          <div class="formula-box orange"><div class="formula-label orange">Time</div><div class="formula-text">1 hour = 60 min = 3600 sec
+1 day = 24 hours   ·   1 week = 7 days
+1 year = 365 days (366 leap) = 52 weeks + 1 day</div></div>
+        </div>
+      </div>
+
+    </div><!-- /chapter-grid -->
+  </div><!-- /panel-ar -->
+
+  <!-- GK PANEL -->
+  <div class="content-panel" id="panel-gk">
+    <div class="action-bar">
+      <button class="act-btn btn-study" onclick="expandAll('gk')">📖 Expand All Topics</button>
+      <button class="act-btn btn-exam" onclick="openExam('gk')">✏️ Take Exam (20 Qs)</button>
+    </div>
+    <div class="chapter-grid">
+
+      <div class="chapter-card ch-orange" style="animation-delay:.05s">
+        <div class="chap-head" onclick="toggleChap(this)"><span class="chap-icon">🏛️</span><div class="chap-title-wrap"><div class="chap-title">Ancient India</div><div class="chap-sub">Indus Valley · Vedic · Maurya · Gupta</div></div><span class="chap-toggle">▼</span></div>
+        <div class="chap-body">
+          <div class="definition"><div class="def-term">Indus Valley Civilisation (3300–1300 BCE)</div><div class="def-text">One of the world's earliest urban civilisations. Major cities: <b>Mohenjo-daro</b> and <b>Harappa</b>. Known for advanced drainage systems, town planning, standardised weights, and a script still undeciphered.</div></div>
+          <div class="definition"><div class="def-term">Vedic Period (1500–600 BCE)</div><div class="def-text">Period of the <b>Rig Veda</b> (oldest of 4 Vedas). Aryan settlements; caste system emerged; Sanskrit language developed. Four Vedas: Rig, Sama, Yajur, Atharva.</div></div>
+          <div class="formula-box orange"><div class="formula-label orange">Maurya Empire (322–185 BCE)</div><div class="formula-text">Founded by Chandragupta Maurya (guided by Chanakya/Kautilya)
+Greatest ruler: Ashoka — embraced Buddhism after Kalinga War (261 BCE)
+Arthashastra: treatise on statecraft by Kautilya
+Capital: Pataliputra (modern Patna, Bihar)</div></div>
+          <div class="formula-box green"><div class="formula-label green">Gupta Empire (320–550 CE) — "Golden Age of India"</div><div class="formula-text">Founded by Sri Gupta; greatest ruler: Chandragupta II (Vikramaditya)
+Aryabhata — discovered zero, calculated value of π ≈ 3.14
+Kalidasa — wrote Shakuntala (Sanskrit drama)
+Nalanda University — world's first residential university</div></div>
+          <ul class="key-points">
+            <li>Buddhism founded by Gautama Buddha (563 BCE, Lumbini, Nepal); attained enlightenment at Bodh Gaya</li>
+            <li>Jainism founded by Mahavira (599 BCE); promoted Ahimsa (non-violence) and Anekantavada</li>
+            <li>Alexander the Great invaded India 326 BCE; defeated by Porus at Battle of Hydaspes</li>
+            <li>Ashoka's Rock Edicts spread across India; written in Brahmi script — spread Buddhism to world</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="chapter-card ch-brown" style="animation-delay:.1s">
+        <div class="chap-head" onclick="toggleChap(this)"><span class="chap-icon">🕌</span><div class="chap-title-wrap"><div class="chap-title">Medieval India</div><div class="chap-sub">Delhi Sultanate · Mughals · Vijayanagara</div></div><span class="chap-toggle">▼</span></div>
+        <div class="chap-body">
+          <div class="formula-box orange"><div class="formula-label orange">Delhi Sultanate (1206–1526) — 5 Dynasties</div><div class="formula-text">① Slave/Mamluk: Qutub-ud-din Aibak (built Qutub Minar)
+② Khilji: Alauddin Khilji (market reforms; repelled Mongols)
+③ Tughlaq: Muhammad bin Tughlaq (moved capital to Daulatabad)
+④ Sayyid: Khizr Khan
+⑤ Lodi: Ibrahim Lodi (defeated by Babur in 1526)</div></div>
+          <div class="formula-box purple"><div class="formula-label purple">Mughal Empire (1526–1857)</div><div class="formula-text">Babur — founded 1526; defeated Ibrahim Lodi at 1st Battle of Panipat
+Humayun — lost/regained throne; died falling from library steps
+Akbar the Great — Din-i-Ilahi; Navratnas; Mansabdari system; secular
+Shah Jahan — Taj Mahal, Red Fort, Jama Masjid
+Aurangzeb — last powerful Mughal; imposed Jizya tax</div></div>
+          <div class="definition"><div class="def-term">Vijayanagara Empire (1336–1646)</div><div class="def-text">Founded by Harihara and Bukka Raya. Greatest ruler: <b>Krishnadevaraya</b> — poet (Amuktamalyada), warrior, patron of arts. Capital: Hampi — now a UNESCO World Heritage Site.</div></div>
+          <ul class="key-points">
+            <li>Battle of Talikota (1565) — Coalition of Deccan Sultans defeated Vijayanagara; Hampi destroyed</li>
+            <li>Chhatrapati Shivaji Maharaj founded Maratha Empire; expert in guerrilla (ganimi kava) warfare</li>
+            <li>Sikhism founded by Guru Nanak Dev Ji (1469); 10 Gurus; Guru Granth Sahib — holy scripture</li>
+            <li>Bhakti Movement: Sant Kabir, Mirabai, Tukaram, Ramananda — promoted devotion over caste/ritual</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="chapter-card ch-red" style="animation-delay:.15s">
+        <div class="chap-head" onclick="toggleChap(this)"><span class="chap-icon">🇮🇳</span><div class="chap-title-wrap"><div class="chap-title">Freedom Struggle</div><div class="chap-sub">1857 Revolt · Gandhian Era · Independence 1947</div></div><span class="chap-toggle">▼</span></div>
+        <div class="chap-body">
+          <div class="formula-box pink"><div class="formula-label pink">Key Events Timeline</div><div class="formula-text">1857 — First War of Independence (Sepoy Mutiny); key leaders: Mangal Pandey, Rani Lakshmibai
+1885 — Indian National Congress founded by A.O. Hume
+1905 — Partition of Bengal; Swadeshi Movement begins
+1915 — Mahatma Gandhi returns from South Africa
+1919 — Jallianwala Bagh massacre (April 13, Amritsar)
+1920 — Non-Cooperation Movement launched
+1930 — Salt Satyagraha / Dandi March (241 miles, 24 days)
+1942 — Quit India Movement "Do or Die"
+1947 — Independence, August 15 (midnight speech by Nehru)</div></div>
+          <div class="definition"><div class="def-term">Mahatma Gandhi (1869–1948) — Father of the Nation</div><div class="def-text">Born in Porbandar, Gujarat. Weapons: <b>Satyagraha</b> (truth-force) and <b>Ahimsa</b> (non-violence). Led Non-Cooperation (1920), Civil Disobedience / Dandi March (1930), and Quit India (1942) movements.</div></div>
+          <ul class="key-points">
+            <li>Bhagat Singh, Sukhdev, Rajguru — hanged March 23, 1931 for Lahore Conspiracy case</li>
+            <li>Subhas Chandra Bose (Netaji) — founded Indian National Army (Azad Hind Fauj); "Jai Hind" slogan</li>
+            <li>Bal Gangadhar Tilak — "Swaraj is my birthright!" slogan; started Ganesh Chaturthi as public festival</li>
+            <li>Nehru gave "Tryst with Destiny" speech midnight of Aug 14–15, 1947 at Constituent Assembly</li>
+            <li>India became a Republic on January 26, 1950 — Constitution came into force; Dr. Rajendra Prasad = 1st President</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="chapter-card ch-green" style="animation-delay:.2s">
+        <div class="chap-head" onclick="toggleChap(this)"><span class="chap-icon">🗺️</span><div class="chap-title-wrap"><div class="chap-title">Indian Geography</div><div class="chap-sub">Rivers · Mountains · States · Climate</div></div><span class="chap-toggle">▼</span></div>
+        <div class="chap-body">
+          <div class="formula-box green"><div class="formula-label green">Key Facts About India</div><div class="formula-text">Total Area: 3.287 million km² (7th largest country)
+Largest state (area): Rajasthan   Smallest state: Goa
+Most populous state: Uttar Pradesh
+Highest point: Kangchenjunga (8586 m) in Sikkim
+Southernmost tip: Indira Point (Great Nicobar Island)
+Coastline: 7,516 km   Borders: 15,106 km</div></div>
+          <div class="formula-box teal"><div class="formula-label teal">Major Rivers</div><div class="formula-text">Ganga — originates at Gangotri Glacier; holiest river; 2525 km
+Brahmaputra — originates Tibet; enters India at Arunachal Pradesh
+Godavari — longest Peninsular river (1465 km); "Vriddha Ganga"
+Krishna — second longest Peninsular river; flows to Bay of Bengal
+Cauvery — "Ganga of the South"; Karnataka and Tamil Nadu
+Yamuna — joins Ganga at Prayagraj (Triveni Sangam)</div></div>
+          <div class="formula-box"><div class="formula-label">Mountain Ranges</div><div class="formula-text">Himalayas — young fold mountains; highest in world; 2400 km long
+Western Ghats — parallel to west coast; UNESCO biodiversity hotspot
+Eastern Ghats — discontinuous; lower than Western Ghats
+Aravalli — OLDEST fold mountains in India (3500+ million years)
+Vindhya &amp; Satpura — divide India into North and South</div></div>
+          <ul class="key-points">
+            <li>India shares land borders with 7 countries: Pakistan, China, Nepal, Bhutan, Bangladesh, Myanmar, Afghanistan</li>
+            <li>Tropic of Cancer (23.5°N) passes through 8 states: Gujarat, Rajasthan, MP, CG, Jharkhand, WB, Tripura, Mizoram</li>
+            <li>Chilika Lake (Odisha) — largest coastal lagoon in India; important flamingo and migratory bird habitat</li>
+            <li>Sundarbans (WB) — largest mangrove forest in the world; Royal Bengal Tiger habitat; UNESCO Heritage</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="chapter-card ch-blue" style="animation-delay:.25s">
+        <div class="chap-head" onclick="toggleChap(this)"><span class="chap-icon">⚖️</span><div class="chap-title-wrap"><div class="chap-title">Indian Polity &amp; Constitution</div><div class="chap-sub">Fundamental Rights · Parliament · Judiciary</div></div><span class="chap-toggle">▼</span></div>
+        <div class="chap-body">
+          <div class="formula-box"><div class="formula-label">Constitution — Key Facts</div><div class="formula-text">Father: Dr. B.R. Ambedkar (Chairman, Drafting Committee)
+Adopted: November 26, 1949   Effective: January 26, 1950
+Preamble: "Sovereign Socialist Secular Democratic Republic"
+Originally: 395 Articles, 8 Schedules, 22 Parts
+Currently: 470+ Articles, 12 Schedules, 25 Parts
+Longest written constitution in the world</div></div>
+          <div class="formula-box purple"><div class="formula-label purple">6 Fundamental Rights (Part III, Art. 12–35)</div><div class="formula-text">① Right to Equality (Art. 14–18) — no discrimination
+② Right to Freedom (Art. 19–22) — speech, movement, etc.
+③ Right Against Exploitation (Art. 23–24) — no child labour
+④ Right to Freedom of Religion (Art. 25–28)
+⑤ Cultural &amp; Educational Rights (Art. 29–30) — minorities
+⑥ Right to Constitutional Remedies (Art. 32) — "Heart &amp; Soul"</div></div>
+          <div class="formula-box teal"><div class="formula-label teal">Parliament Structure</div><div class="formula-text">Lok Sabha (Lower House): 543 elected + 2 nominated; max 552
+Rajya Sabha (Upper House): 238 elected + 12 nominated; max 250
+President: Head of State; elected by electoral college (MPs + MLAs)
+Prime Minister: Head of Govt; leads Cabinet; advises President
+Supreme Court: Chief Justice + up to 33 judges; Art. 124</div></div>
+          <ul class="key-points">
+            <li>Directive Principles (Part IV) — non-justiciable but fundamental to governance; guide lawmakers</li>
+            <li>11 Fundamental Duties added by 42nd Amendment (1976) under Art. 51A</li>
+            <li>3 types of Emergencies: National (Art. 352), State (Art. 356 — President's Rule), Financial (Art. 360)</li>
+            <li>CAG — Comptroller and Auditor General; guardian of public purse; Art. 148</li>
+            <li>Election Commission — independent constitutional body; conducts free and fair elections</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="chapter-card ch-teal" style="animation-delay:.3s">
+        <div class="chap-head" onclick="toggleChap(this)"><span class="chap-icon">⚡</span><div class="chap-title-wrap"><div class="chap-title">Physics</div><div class="chap-sub">Motion · Force · Energy · Light · Sound</div></div><span class="chap-toggle">▼</span></div>
+        <div class="chap-body">
+          <div class="formula-box teal"><div class="formula-label teal">Newton's Laws of Motion</div><div class="formula-text">1st Law (Inertia): body at rest stays at rest unless an external force acts
+2nd Law: F = ma  (Force = mass × acceleration)   Unit: Newton (N)
+3rd Law: Every action has an equal and opposite reaction</div></div>
+          <div class="formula-box"><div class="formula-label">Work, Energy &amp; Power</div><div class="formula-text">Work = Force × Distance × cos θ   Unit: Joule (J)
+KE (Kinetic Energy) = ½ mv²
+PE (Potential Energy) = mgh
+Power = Work / Time   Unit: Watt (W)
+1 kWh = 3.6 × 10⁶ J (unit on electricity bill)</div></div>
+          <div class="formula-box purple"><div class="formula-label purple">Light &amp; Sound</div><div class="formula-text">Speed of light: 3 × 10⁸ m/s in vacuum
+Speed of sound in air: ~343 m/s at 20°C
+Concave mirror — converging; used in torches, vehicle headlights, telescopes
+Convex mirror — diverging; used in rear-view mirrors, security mirrors
+Total Internal Reflection → optical fibre, mirage, diamonds sparkle</div></div>
+          <ul class="key-points">
+            <li>Archimedes' Principle: upthrust (buoyancy) = weight of fluid displaced by the object</li>
+            <li>Pascal's Law: pressure applied to enclosed fluid transmits equally in all directions (basis of hydraulics)</li>
+            <li>Decibel (dB) — unit of sound intensity; threshold of pain = 120 dB; normal conversation ≈ 60 dB</li>
+            <li>Ultrasonic waves: frequency &gt; 20,000 Hz; used in SONAR, ultrasound scanning, cleaning</li>
+            <li>Electromagnetic spectrum (low to high freq): Radio → Micro → IR → Visible → UV → X-ray → Gamma</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="chapter-card ch-lime" style="animation-delay:.35s">
+        <div class="chap-head" onclick="toggleChap(this)"><span class="chap-icon">🔬</span><div class="chap-title-wrap"><div class="chap-title">Chemistry &amp; Biology</div><div class="chap-sub">Elements · Acids-Bases · Human Body · Vitamins</div></div><span class="chap-toggle">▼</span></div>
+        <div class="chap-body">
+          <div class="formula-box green"><div class="formula-label green">Important Chemical Facts</div><div class="formula-text">Water: H₂O   ·   Common salt: NaCl   ·   Sugar: C₁₂H₂₂O₁₁
+Baking soda: NaHCO₃ (sodium bicarbonate)
+Washing soda: Na₂CO₃ (sodium carbonate)
+Acid rain: caused by SO₂ and NO₂ dissolving in rainwater
+pH &lt;7 = Acidic  ·  pH = 7 = Neutral  ·  pH &gt;7 = Basic/Alkaline</div></div>
+          <div class="formula-box pink"><div class="formula-label pink">Human Body Facts</div><div class="formula-text">Largest organ: Skin   ·   Largest internal organ: Liver
+Smallest bone: Stapes (ear)   ·   Largest bone: Femur (thigh)
+Normal body temperature: 37°C (98.6°F)
+Blood groups: A, B, AB (universal recipient), O (universal donor)
+Normal blood pressure: 120/80 mmHg
+RBC lifespan: 120 days   ·   WBC: 13–20 days</div></div>
+          <div class="formula-box"><div class="formula-label">Vitamins &amp; Deficiency Diseases</div><div class="formula-text">Vitamin A — Night blindness (carrots, leafy vegetables)
+Vitamin B1 (Thiamine) — Beriberi
+Vitamin B12 — Pernicious anaemia
+Vitamin C (Ascorbic acid) — Scurvy (citrus fruits)
+Vitamin D — Rickets in children; osteomalacia in adults (sunlight)
+Vitamin K — Blood clotting disorders
+Iodine deficiency — Goitre   ·   Iron deficiency — Anaemia</div></div>
+          <ul class="key-points">
+            <li>Photosynthesis: 6CO₂ + 6H₂O + sunlight → C₆H₁₂O₆ + 6O₂ (chlorophyll catalyst)</li>
+            <li>DNA (Deoxyribonucleic acid) — double helix structure; discovered by Watson &amp; Crick (1953)</li>
+            <li>Mitosis: 1 cell → 2 identical cells (growth/repair); Meiosis: 1 cell → 4 unique cells (reproduction)</li>
+            <li>Ozone layer (O₃) in stratosphere 15–35 km above Earth; absorbs harmful UV radiation</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="chapter-card ch-pink" style="animation-delay:.4s">
+        <div class="chap-head" onclick="toggleChap(this)"><span class="chap-icon">🏆</span><div class="chap-title-wrap"><div class="chap-title">Awards &amp; Honours</div><div class="chap-sub">National · International · Nobel · Sports</div></div><span class="chap-toggle">▼</span></div>
+        <div class="chap-body">
+          <div class="formula-box pink"><div class="formula-label pink">Indian National Awards</div><div class="formula-text">Bharat Ratna — highest civilian award (established 1954)
+Padma Vibhushan → Padma Bhushan → Padma Shri (descending order)
+Arjuna Award — outstanding sports achievement
+Dronacharya Award — coaches of award-winning athletes
+Rajiv Gandhi Khel Ratna — highest sports honour (renamed Major Dhyan Chand Khel Ratna)
+Param Vir Chakra — highest wartime gallantry (military)
+Ashoka Chakra — highest peacetime gallantry</div></div>
+          <div class="formula-box purple"><div class="formula-label purple">International Awards</div><div class="formula-text">Nobel Prize — Peace, Literature, Physics, Chemistry, Medicine, Economics
+    · Awarded by Swedish Academy (Literature); Norwegian committee (Peace)
+Oscar (Academy Award) — Best film/performance (cinema)
+Grammy Award — Excellence in music recording
+Booker Prize — best English-language novel (Commonwealth/UK/Ireland)
+Pulitzer Prize — journalism and arts (USA)
+Magsaysay Award — Asian Nobel Prize; for public service</div></div>
+          <div class="formula-box teal"><div class="formula-label teal">International Organisations</div><div class="formula-text">UN (United Nations) — founded 1945; 193 members; HQ New York; 6 official languages
+WHO (World Health Organization) — HQ Geneva
+IMF (International Monetary Fund) — HQ Washington DC
+WTO (World Trade Organization) — HQ Geneva
+SAARC — 8 South Asian members; HQ Kathmandu
+G20 — India hosted 2023 in New Delhi; 20 major economies</div></div>
+        </div>
+      </div>
+
+      <div class="chapter-card ch-indigo" style="animation-delay:.45s">
+        <div class="chap-head" onclick="toggleChap(this)"><span class="chap-icon">🏅</span><div class="chap-title-wrap"><div class="chap-title">Sports &amp; Games</div><div class="chap-sub">Cricket · Olympics · Hockey · Tennis</div></div><span class="chap-toggle">▼</span></div>
+        <div class="chap-body">
+          <div class="formula-box"><div class="formula-label">Cricket</div><div class="formula-text">Governing Body: ICC (International Cricket Council); HQ Dubai
+India World Cup wins: 1983 (Kapil Dev), 2011 (MS Dhoni)
+Sachin Tendulkar — "God of Cricket"; 100 international centuries; 24 years career
+Test Cricket: 5 days · ODI: 50 overs · T20: 20 overs · IPL: Twenty20 league
+Domestic trophies: Ranji (first-class), Vijay Hazare (ODI), Duleep, Irani</div></div>
+          <div class="formula-box purple"><div class="formula-label purple">Olympics</div><div class="formula-text">Summer Olympics: every 4 years; Ancient games started 776 BCE (Olympia, Greece)
+Pierre de Coubertin revived modern Olympics — first modern: Athens 1896
+India's 1st Olympic gold: Abhinav Bindra (2008 Beijing, 10m Air Rifle)
+India's 1st individual medal: KD Jadhav (1952 Helsinki, wrestling — bronze)
+Paris Olympics 2024: India won 6 medals (1 silver + 5 bronze)
+Neeraj Chopra — gold (Javelin) Tokyo 2020; silver Paris 2024</div></div>
+          <div class="formula-box green"><div class="formula-label green">Other Sports</div><div class="formula-text">Football World Cup: FIFA; 32 teams; every 4 years; Brazil — most wins (5)
+Hockey: India's national sport; 8 Olympic gold medals
+Wimbledon — oldest Grand Slam (1877); grass court; London
+PV Sindhu — first Indian woman to win 2 Olympic medals (badminton)
+Mary Kom — 6-time World Boxing Champion; Olympic bronze 2012
+Viswanathan Anand — 5-time World Chess Champion</div></div>
+        </div>
+      </div>
+
+      <div class="chapter-card ch-cyan" style="animation-delay:.5s">
+        <div class="chap-head" onclick="toggleChap(this)"><span class="chap-icon">🌿</span><div class="chap-title-wrap"><div class="chap-title">Environment &amp; Ecology</div><div class="chap-sub">Climate Change · Biodiversity · Conservation</div></div><span class="chap-toggle">▼</span></div>
+        <div class="chap-body">
+          <div class="definition"><div class="def-term">Biodiversity</div><div class="def-text">The variety of life on Earth — includes <b>genetic diversity</b>, <b>species diversity</b>, and <b>ecosystem diversity</b>. India is one of 17 megadiverse countries, hosting about 7–8% of all recorded species on just 2.4% of Earth's land.</div></div>
+          <div class="formula-box green"><div class="formula-label green">Climate Change &amp; Key Agreements</div><div class="formula-text">Greenhouse gases: CO₂, CH₄ (methane), N₂O, water vapour, O₃
+Global warming: rising average temperature due to enhanced greenhouse effect
+Kyoto Protocol (1997) — first binding treaty on emission reductions
+Paris Agreement (2015) — limit warming to 1.5°C above pre-industrial levels
+India's pledge: net-zero carbon emissions by 2070 (COP26, Glasgow)</div></div>
+          <div class="formula-box teal"><div class="formula-label teal">Indian Conservation Projects</div><div class="formula-text">Project Tiger (1973) — 54 tiger reserves; tiger population ~3167 (2022)
+Project Elephant (1992) — India has 60% of world's Asian elephants
+Project Crocodile, Project Sea Turtle, Project Snow Leopard
+Chipko Movement (1970s) — tree-hugging movement; Uttarakhand; led by Sunderlal Bahuguna
+Bishnoi community (Rajasthan) — protecting trees &amp; animals for 500+ years</div></div>
+          <ul class="key-points">
+            <li>India has 42 UNESCO World Heritage Sites (32 cultural, 7 natural, 1 mixed) — 2024 count</li>
+            <li>Kaziranga National Park (Assam) — largest one-horned rhinoceros population; UNESCO Heritage</li>
+            <li>Silent Valley National Park (Kerala) — last undisturbed tropical rainforest in India</li>
+            <li>Sundarbans — largest mangrove forest in the world; shared between India and Bangladesh</li>
+            <li>India has 106 National Parks and 567 Wildlife Sanctuaries as of 2024</li>
+          </ul>
+        </div>
+      </div>
+
+    </div><!-- /gk-chapter-grid -->
+  </div><!-- /panel-gk -->
+
+  <div class="stats-strip" id="stats">
+    <div class="stat-item"><span class="stat-num">11</span><div class="stat-label">📐 Arithmetic Chapters</div></div>
+    <div class="stat-item"><span class="stat-num">10</span><div class="stat-label">🌍 GK Chapters</div></div>
+    <div class="stat-item"><span class="stat-num">40</span><div class="stat-label">✏️ Exam Questions</div></div>
+    <div class="stat-item"><span class="stat-num">100%</span><div class="stat-label">🎯 Free to Use</div></div>
+  </div>
+</main>
+
+<footer>
+  <p>© 2025 Sravya's Education | All Rights Reserved &nbsp;<span class="footer-hearts">❤️</span>&nbsp; Learn • Practice • Succeed</p>
+</footer>
+
+<!-- EXAM MODAL -->
+<div class="modal-overlay" id="examModal">
+  <div class="modal">
+    <div class="modal-head" id="modalHead">
+      <h3 id="modalTitle">✏️ Exam</h3>
+      <p id="modalSubtitle">Test your knowledge!</p>
+      <button class="modal-close" onclick="closeExam()">✕</button>
+    </div>
+    <div class="modal-progress"><div class="modal-progress-bar" id="progressBar" style="width:0%"></div></div>
+    <div class="modal-scroll">
+      <div id="quizArea">
+        <div class="q-num" id="qNum">Question 1 of 20</div>
+        <div class="question-box" id="questionText"></div>
+        <div class="options-list" id="optionsList"></div>
+        <div class="explanation" id="explanationBox"><div class="exp-label">💡 Explanation</div><div id="expText"></div></div>
+      </div>
+      <div id="resultArea" style="display:none" class="result-screen">
+        <span class="result-emoji" id="resultEmoji">🎉</span>
+        <div class="result-score" id="resultScore">0/20</div>
+        <div class="result-msg" id="resultMsg"></div>
+        <div class="result-breakdown">
+          <div class="rb-item rb-correct"><div class="rb-num" id="rbC">0</div><div class="rb-label">✅ Correct</div></div>
+          <div class="rb-item rb-wrong"><div class="rb-num" id="rbW">0</div><div class="rb-label">❌ Wrong</div></div>
+          <div class="rb-item rb-skip"><div class="rb-num" id="rbS">0</div><div class="rb-label">⏭️ Skipped</div></div>
+        </div>
+        <button class="modal-btn btn-next" onclick="restartExam()" style="margin-top:14px">🔄 Try Again</button>
+      </div>
+    </div>
+    <div class="modal-footer-bar">
+      <span class="score-badge">Score: <span id="scoreDisplay">0</span> / <span id="totalDisplay">0</span></span>
+      <div style="display:flex;gap:8px;flex-wrap:wrap;">
+        <button class="modal-btn btn-skip" onclick="skipQ()" id="skipBtn">⏭️ Skip</button>
+        <button class="modal-btn btn-next" onclick="nextQ()" id="nextBtn" style="display:none">Next ▶</button>
+        <button class="modal-btn btn-done" onclick="showResult()" id="doneBtn" style="display:none">Finish ✓</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+/* PARTICLES & STARS */
+const pCont=document.getElementById('particles');
+const pc=['#f5a623','#e91e8c','#7c3aed','#27ae60','#0097a7','#1a3fa8','#ff6f00'];
+for(let i=0;i<28;i++){const p=document.createElement('div');p.className='particle';const s=4+Math.random()*9;p.style.cssText=`width:${s}px;height:${s}px;left:${Math.random()*100}%;background:${pc[i%pc.length]};animation-duration:${9+Math.random()*13}s;animation-delay:${Math.random()*10}s;`;pCont.appendChild(p);}
+const hs=document.getElementById('headerStars');
+for(let i=0;i<38;i++){const s=document.createElement('div');s.className='star';const sz=1+Math.random()*3;s.style.cssText=`width:${sz}px;height:${sz}px;left:${Math.random()*100}%;top:${Math.random()*100}%;animation-delay:${Math.random()*2}s;animation-duration:${1+Math.random()*2}s;`;hs.appendChild(s);}
+
+/* PANEL SWITCH */
+function showPanel(p){
+  document.querySelectorAll('.content-panel').forEach(el=>el.classList.remove('active'));
+  document.getElementById('panel-'+p).classList.add('active');
+  document.querySelectorAll('.sub-tab').forEach(t=>t.className='sub-tab');
+  document.getElementById('tab-'+p).className='sub-tab active-'+p;
+  window.scrollTo({top:document.querySelector('.subject-tabs').offsetTop-80,behavior:'smooth'});
+}
+
+/* CHAPTER TOGGLE */
+function toggleChap(head){
+  const body=head.nextElementSibling;
+  const tog=head.querySelector('.chap-toggle');
+  body.classList.toggle('open');
+  tog.classList.toggle('open');
+}
+function expandAll(panel){
+  document.querySelectorAll(`#panel-${panel} .chap-body`).forEach(b=>b.classList.add('open'));
+  document.querySelectorAll(`#panel-${panel} .chap-toggle`).forEach(t=>t.classList.add('open'));
+}
+
+/* EXAM QUESTIONS */
+const examData={
+ar:[
+  {q:"What is 15% of 200?",opts:["25","30","35","40"],ans:1,exp:"15% of 200 = (15/100)×200 = 30"},
+  {q:"A shopkeeper buys at ₹200 and sells at ₹250. Profit %?",opts:["20%","25%","30%","15%"],ans:1,exp:"Profit = 50. Profit% = (50/200)×100 = 25%"},
+  {q:"Evaluate using BODMAS: 3 + 6 × 2 ÷ 4 − 1",opts:["4","5","6","3"],ans:1,exp:"BODMAS: 6×2=12, 12÷4=3, 3+3−1=5"},
+  {q:"Find LCM of 12 and 18.",opts:["36","24","48","6"],ans:0,exp:"12=2²×3, 18=2×3². LCM = 2²×3² = 36"},
+  {q:"A can finish work in 10 days, B in 15 days. Together in how many days?",opts:["6","5","8","4"],ans:0,exp:"1/10+1/15 = 5/30 = 1/6. Together = 6 days."},
+  {q:"If price increases 20%, consumption must decrease by how much to keep expenditure same?",opts:["16.67%","20%","25%","15%"],ans:0,exp:"Decrease = r/(100+r)×100 = 20/120×100 = 16.67%"},
+  {q:"Find SI on ₹5000 at 6% p.a. for 3 years.",opts:["₹900","₹800","₹1000","₹700"],ans:0,exp:"SI = (5000×6×3)/100 = ₹900"},
+  {q:"A train 150m crosses a pole in 10 sec. Speed in km/hr?",opts:["54","60","45","72"],ans:0,exp:"Speed=150/10=15 m/s = 15×18/5 = 54 km/hr"},
+  {q:"Average of 5 numbers is 20. If 30 is replaced by 50, new average?",opts:["24","22","26","20"],ans:0,exp:"Old sum=100. New sum=100−30+50=120. Avg=120/5=24"},
+  {q:"HCF of 36 and 48 is?",opts:["12","6","18","24"],ans:0,exp:"36=2²×3², 48=2⁴×3. HCF=2²×3=12"},
+  {q:"Average speed: A walks 4 km/hr and cycles 12 km/hr for equal distances.",opts:["6 km/hr","8 km/hr","7 km/hr","5 km/hr"],ans:0,exp:"Average speed = 2×4×12/(4+12) = 96/16 = 6 km/hr"},
+  {q:"The ratio 4:5. The smaller as a percentage of the larger is?",opts:["80%","75%","85%","70%"],ans:0,exp:"(4/5)×100 = 80%"},
+  {q:"Compound interest on ₹1000 at 10% for 2 years?",opts:["₹210","₹200","₹220","₹190"],ans:0,exp:"A=1000×(1.1)²=1210. CI=1210−1000=₹210"},
+  {q:"√1764 = ?",opts:["42","41","44","43"],ans:0,exp:"1764 = 4×441 = (2×21)² → √1764 = 42"},
+  {q:"Pipe A fills tank in 6 hrs, B empties in 10 hrs. Both open, tank fills in?",opts:["15 hrs","12 hrs","10 hrs","20 hrs"],ans:0,exp:"Net rate = 1/6−1/10 = 2/30 = 1/15. Time = 15 hrs"},
+  {q:"A is 3 times as efficient as B. B alone takes 18 days. A+B together take?",opts:["4.5 days","6 days","9 days","5 days"],ans:0,exp:"A takes 6 days. Together: 1/6+1/18=4/18. Time=18/4=4.5 days"},
+  {q:"Successive discounts of 20% and 10% equal single discount of?",opts:["28%","30%","25%","27%"],ans:0,exp:"Single = a+b−ab/100 = 20+10−2 = 28%"},
+  {q:"1 km/hr = ? m/s",opts:["5/18","18/5","1","1/3"],ans:0,exp:"1 km = 1000 m, 1 hr = 3600 s. 1 km/hr = 1000/3600 = 5/18 m/s"},
+  {q:"Three numbers are in ratio 1:2:3 with sum 90. The largest number is?",opts:["45","30","60","15"],ans:0,exp:"Parts total = 6. Largest = (3/6)×90 = 45"},
+  {q:"Profit % if CP = ₹800 and SP = ₹960?",opts:["20%","25%","15%","18%"],ans:0,exp:"Profit=160. Profit%=(160/800)×100=20%"}
+],
+gk:[
+  {q:"Who is called the Father of the Indian Constitution?",opts:["Jawaharlal Nehru","Mahatma Gandhi","B.R. Ambedkar","Sardar Patel"],ans:2,exp:"Dr. B.R. Ambedkar chaired the Drafting Committee and is called Father of the Constitution."},
+  {q:"Indian Constitution came into effect on?",opts:["Aug 15, 1947","Jan 26, 1950","Nov 26, 1949","Jan 26, 1949"],ans:1,exp:"Adopted Nov 26, 1949; came into effect January 26, 1950 — celebrated as Republic Day."},
+  {q:"Which river is called the 'Sorrow of Bengal'?",opts:["Ganga","Damodar","Brahmaputra","Hooghly"],ans:1,exp:"Damodar river caused devastating floods in Bengal, earning this nickname."},
+  {q:"Who founded the Maurya Empire?",opts:["Ashoka","Chandragupta Maurya","Bindusara","Chanakya"],ans:1,exp:"Chandragupta Maurya founded the Maurya Empire in 322 BCE with Chanakya's guidance."},
+  {q:"Chandrayaan-3 made India the first country to land on the Moon's?",opts:["North Pole","South Pole","Equator","Far side"],ans:1,exp:"Chandrayaan-3 landed on the lunar south pole on August 23, 2023."},
+  {q:"Dandi March (1930) covered approximately how many miles?",opts:["150","241","300","100"],ans:1,exp:"Gandhi's Salt March from Sabarmati to Dandi covered about 241 miles (388 km)."},
+  {q:"Which is the highest civilian award in India?",opts:["Padma Vibhushan","Bharat Ratna","Padma Shri","Padma Bhushan"],ans:1,exp:"Bharat Ratna is India's highest civilian honour, instituted in 1954."},
+  {q:"Project Tiger was launched in?",opts:["1965","1980","1973","1990"],ans:2,exp:"Project Tiger was launched on April 1, 1973 to protect tigers across India."},
+  {q:"India's first individual Olympic gold was won in which sport?",opts:["Wrestling","Shooting","Boxing","Badminton"],ans:1,exp:"Abhinav Bindra won gold in 10m Air Rifle shooting at Beijing Olympics 2008."},
+  {q:"Tropic of Cancer passes through how many Indian states?",opts:["6","7","8","9"],ans:2,exp:"8 states: Gujarat, Rajasthan, MP, Chhattisgarh, Jharkhand, West Bengal, Tripura, Mizoram."},
+  {q:"Which Fundamental Right is called 'Heart and Soul of the Constitution'?",opts:["Right to Equality","Right to Freedom","Right to Constitutional Remedies","Right Against Exploitation"],ans:2,exp:"Dr. Ambedkar called Article 32 (Right to Constitutional Remedies) the 'Heart and Soul of the Constitution'."},
+  {q:"Who gave the slogan 'Swaraj is my birthright'?",opts:["Mahatma Gandhi","Netaji Bose","Bal Gangadhar Tilak","Lala Lajpat Rai"],ans:2,exp:"Bal Gangadhar Tilak gave the famous slogan: 'Swaraj is my birthright and I shall have it.'"},
+  {q:"What does DNA stand for?",opts:["Di-Nitrogen Acid","Deoxyribonucleic Acid","Double Nucleic Acid","Dextrose-Nitrogen Acid"],ans:1,exp:"DNA = Deoxyribonucleic Acid. Its double helix structure was discovered by Watson and Crick in 1953."},
+  {q:"Godavari river is also known as?",opts:["Dakshin Ganga","Vriddha Ganga","Both A and B","Neither"],ans:2,exp:"Godavari is called 'Vriddha Ganga' (Old Ganga) and 'Dakshin Ganga' (Southern Ganga)."},
+  {q:"Sachin Tendulkar scored how many international centuries?",opts:["95","100","98","102"],ans:1,exp:"Sachin Tendulkar scored exactly 100 international centuries (51 Tests + 49 ODIs)."},
+  {q:"Vitamin D deficiency causes which disease?",opts:["Scurvy","Beriberi","Rickets","Night blindness"],ans:2,exp:"Vitamin D deficiency causes Rickets in children (weak bones). Vitamin C → Scurvy, B1 → Beriberi, A → Night blindness."},
+  {q:"First Battle of Panipat was fought in which year?",opts:["1526","1556","1576","1605"],ans:0,exp:"First Battle of Panipat (1526): Babur defeated Ibrahim Lodi, establishing the Mughal Empire."},
+  {q:"Speed of sound in air at room temperature is approximately?",opts:["343 m/s","300 m/s","3×10⁸ m/s","150 m/s"],ans:0,exp:"Speed of sound in air at 20°C ≈ 343 m/s. Speed of LIGHT = 3×10⁸ m/s (much faster)."},
+  {q:"Which state has the longest coastline in India?",opts:["Kerala","Maharashtra","Andhra Pradesh","Gujarat"],ans:3,exp:"Gujarat has the longest coastline at approximately 1600 km due to its irregular shape."},
+  {q:"India hosted the G20 Summit in which year?",opts:["2022","2023","2024","2021"],ans:1,exp:"India hosted G20 in New Delhi, September 2023, under the theme 'Vasudhaiva Kutumbakam' (One Earth, One Family, One Future)."}
+]};
+
+/* EXAM ENGINE */
+let curSub='ar',curIdx=0,score=0,wrongs=0,skips=0,answered=false;
+
+function openExam(sub){
+  curSub=sub;curIdx=0;score=0;wrongs=0;skips=0;answered=false;
+  const isAr=sub==='ar';
+  document.getElementById('modalHead').style.background=isAr?'linear-gradient(135deg,#1a3fa8,#0097a7)':'linear-gradient(135deg,#7c3aed,#e91e8c)';
+  document.getElementById('modalTitle').textContent=isAr?'📐 Arithmetic Exam':'🌍 GK Exam';
+  document.getElementById('modalSubtitle').textContent='20 questions — choose the correct answer';
+  document.getElementById('quizArea').style.display='block';
+  document.getElementById('resultArea').style.display='none';
+  document.getElementById('examModal').classList.add('open');
+  loadQ();
+}
+function closeExam(){document.getElementById('examModal').classList.remove('open');}
+
+function loadQ(){
+  answered=false;
+  document.getElementById('explanationBox').classList.remove('show');
+  const qs=examData[curSub];
+  const q=qs[curIdx];
+  document.getElementById('qNum').textContent=`Question ${curIdx+1} of ${qs.length}`;
+  document.getElementById('questionText').textContent=q.q;
+  document.getElementById('scoreDisplay').textContent=score;
+  document.getElementById('totalDisplay').textContent=curIdx;
+  document.getElementById('progressBar').style.width=`${(curIdx/qs.length)*100}%`;
+  const L=['A','B','C','D'];
+  document.getElementById('optionsList').innerHTML=q.opts.map((o,i)=>`<div class="option" onclick="selectOpt(${i})" id="opt${i}"><span class="option-letter">${L[i]}</span>${o}</div>`).join('');
+  document.getElementById('nextBtn').style.display='none';
+  document.getElementById('doneBtn').style.display='none';
+  document.getElementById('skipBtn').style.display='inline-block';
+}
+
+function selectOpt(idx){
+  if(answered)return; answered=true;
+  document.getElementById('skipBtn').style.display='none';
+  const q=examData[curSub][curIdx];
+  if(idx===q.ans){document.getElementById('opt'+idx).classList.add('correct');score++;}
+  else{document.getElementById('opt'+idx).classList.add('wrong');document.getElementById('opt'+q.ans).classList.add('correct');wrongs++;}
+  document.getElementById('expText').textContent=q.exp;
+  document.getElementById('explanationBox').classList.add('show');
+  document.getElementById('scoreDisplay').textContent=score;
+  document.getElementById('totalDisplay').textContent=curIdx+1;
+  const last=curIdx===examData[curSub].length-1;
+  document.getElementById('nextBtn').style.display=last?'none':'inline-block';
+  document.getElementById('doneBtn').style.display=last?'inline-block':'none';
+}
+
+function skipQ(){
+  if(answered)return;
+  skips++;
+  document.getElementById('totalDisplay').textContent=curIdx+1;
+  if(curIdx<examData[curSub].length-1){curIdx++;loadQ();}
+  else{showResult();}
+}
+
+function nextQ(){
+  if(curIdx<examData[curSub].length-1){curIdx++;loadQ();}
+}
+
+function showResult(){
+  document.getElementById('progressBar').style.width='100%';
+  document.getElementById('quizArea').style.display='none';
+  document.getElementById('resultArea').style.display='block';
+  const tot=examData[curSub].length;
+  const pct=Math.round((score/tot)*100);
+  let emoji='😞',msg='Keep practising! Review the topics and try again.';
+  if(pct>=90){emoji='🏆';msg='Outstanding! You are a brilliant student! 🌟';}
+  else if(pct>=70){emoji='🎉';msg='Great job! Excellent performance!';}
+  else if(pct>=50){emoji='😊';msg='Good effort! A bit more practice and you will nail it!';}
+  document.getElementById('resultEmoji').textContent=emoji;
+  document.getElementById('resultScore').textContent=`${score}/${tot} (${pct}%)`;
+  document.getElementById('resultMsg').textContent=msg;
+  document.getElementById('rbC').textContent=score;
+  document.getElementById('rbW').textContent=wrongs;
+  document.getElementById('rbS').textContent=skips;
+}
+
+function restartExam(){openExam(curSub);}
+</script>
+</body>
+</html>
